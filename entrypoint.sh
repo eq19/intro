@@ -100,7 +100,8 @@ export PIP_CACHE_DIR=${VENDOR_BUNDLE}/pip
 wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
 #cd ${PREFIX} && autoreconf -f -i && chmod +x configure
 tar -xzf ta-lib-0.4.0-src.tar.gz && cd ta-lib/
-./configure --prefix=/usr && make && make install
+./configure --prefix=/usr &>/dev/null
+make &>/dev/null && make install &>/dev/null
 
 cd ${WORKING_DIR}
 # https://pypi.org/project/pipx/
