@@ -68,12 +68,12 @@ df -h
 # rootdir
 echo -e "$hr\nROOT DIR\n$hr"
 cd / && pwd && ls -al
-cd ${WORKING_DIR}/docs/_data/ta-lib
-./configure --prefix=/usr && make && make install
 
 # packages
 echo -e "$hr\nVENV DIR\n$hr"
 cd /maps && pwd && ls -al
+cd ${WORKING_DIR}/docs/_data/ta-lib
+./configure --prefix=/usr && make && make install
 
 # current
 echo -e "$hr\nWORK DIR\n$hr"
