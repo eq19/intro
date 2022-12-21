@@ -79,8 +79,8 @@ cd /maps && pwd && ls -al
 echo -e "$hr\nWORK DIR\n$hr"
 cd ${WORKING_DIR} && pwd && ls -al
 
-echo -e "$hr\nPRIOR INSTALLATION\n$hr"
-chown -R root:root ${HOME} && dpkg -l
+#echo -e "$hr\nPRIOR INSTALLATION\n$hr"
+#chown -R root:root ${HOME} && dpkg -l
  
 # cloning default repository
 # https://stackoverflow.com/a/74439875/4058484
@@ -97,10 +97,10 @@ npm install --prefix /maps --cache ${NPM_CACHE_DIR} &>/dev/null
 export PATH=${HOME}/.local/bin:$PATH
 export PIP_CACHE_DIR=${VENDOR_BUNDLE}/pip
 
-wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz &>/dev/null
 #cd ${PREFIX} && autoreconf -f -i && chmod +x configure
-tar -xzf ta-lib-0.4.0-src.tar.gz && cd ta-lib/
-./configure --prefix=/usr &>/dev/null
+tar -xzf ta-lib-0.4.0-src.tar.gz &>/dev/null
+cd ta-lib/ && ./configure --prefix=/usr &>/dev/null
 make &>/dev/null && make install &>/dev/null
 
 cd ${WORKING_DIR}
@@ -119,8 +119,8 @@ apt-get install -qq ruby ruby-dev ruby-bundler build-essential &>/dev/null
 gem install rails --version "$RAILS_VERSION" --quiet --silent &>/dev/null
 
 # installed packages
-echo -e "\n$hr\nUPON INSTALLATION\n$hr"
-dpkg -l
+#echo -e "\n$hr\nUPON INSTALLATION\n$hr"
+#dpkg -l
 
 # Setting default ruby version
 echo -e "$hr\nTENSORFLOW VERSION\n$hr"

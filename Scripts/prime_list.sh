@@ -23,10 +23,9 @@ os.chdir("/github/workspace/docs/_data/primes")
 # https://www.geeksforgeeks.org/how-to-read-all-csv-files-in-a-folder-in-pandas/
 
 path = os.getcwd()
-csv_files = glob.glob(os.path.join(path, "*.csv"))
-
 pd.DataFrame().ta.indicators()
 print(talib.get_function_groups())
+csv_files = glob.glob(os.path.join(path, "*.csv"))
 
 for f in csv_files:
   # read the csv file
