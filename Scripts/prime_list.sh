@@ -25,6 +25,9 @@ os.chdir("/github/workspace/docs/_data/primes")
 path = os.getcwd()
 csv_files = glob.glob(os.path.join(path, "*.csv"))
 
+pd.DataFrame().ta.indicators()
+print(talib.get_function_groups())
+
 for f in csv_files:
   # read the csv file
   df_train = pd.read_csv(f, names=["Length", "Diameter", "Height", "Whole weight", "Shucked weight","Viscera weight", "Shell weight", "Age"])
@@ -43,6 +46,3 @@ df_model = tf.keras.Sequential([
 df_model.compile(loss = tf.keras.losses.MeanSquaredError(),
   optimizer = tf.keras.optimizers.Adam())
 df_model.fit(df_features, df_labels, epochs=10)
-
-pd.DataFrame().ta.indicators()
-print(talib.get_function_groups())
