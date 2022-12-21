@@ -4,7 +4,6 @@ set -e
 export WORKING_DIR=${PWD}
 chown -R $(whoami) ${WORKING_DIR}
 export hr=$(printf '=%.0s' {1..80})
-chmod -R +x docs/_maps/Journal/Scripts
 
 # Initial default value
 export TOKEN=${INPUT_TOKEN}
@@ -17,7 +16,7 @@ export BUNDLER_VER=${INPUT_BUNDLER_VER:=>=0}
 export JEKYLL_BASEURL=${INPUT_JEKYLL_BASEURL:=}
 export PREFIX=${WORKING_DIR}/docs/_data/ta-lib/linux
 export PRE_BUILD_COMMANDS=${INPUT_PRE_BUILD_COMMANDS:=}
-export SCRIPT_DIR=${WORKING_DIR}/docs/_maps/Journal/Scripts
+export SCRIPT_DIR=/maps/Scripts && chmod -R +x ${SCRIPT_DIR}
 
 # https://stackoverflow.com/a/42137273/4058484
 export JEKYLL_SRC=${WORKING_DIR}
