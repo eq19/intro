@@ -14,6 +14,7 @@ export OWNER=${GITHUB_REPOSITORY_OWNER}
 export BRANCH=${INPUT_BRANCH:=gh-pages}
 export PROVIDER=${INPUT_PROVIDER:=github}
 export BUNDLER_VER=${INPUT_BUNDLER_VER:=>=0}
+export PREFIX=${WORKING_DIR}/docs/_data/ta-lib
 export JEKYLL_BASEURL=${INPUT_JEKYLL_BASEURL:=}
 export PRE_BUILD_COMMANDS=${INPUT_PRE_BUILD_COMMANDS:=}
 export SCRIPT_DIR=${WORKING_DIR}/docs/_maps/Journal/Scripts
@@ -45,7 +46,9 @@ export RAILS_VERSION=5.0.1
 export BUNDLER_VER=${BUNDLER_VER}
 export BUNDLE_GEMFILE=/maps/Gemfile
 export BUNDLE_SILENCE_ROOT_WARNING=1
+export TA_LIBRARY_PATH=${PREFIX}/lib
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
+export TA_INCLUDE_PATH=${PREFIX}/include
 export PAGES_REPO_NWO=$GITHUB_REPOSITORY
 export VENDOR_BUNDLE=${WORKING_DIR}/vendor/bundle
 export SSL_CERT_FILE=$(realpath .github/hook-scripts/cacert.pem)
@@ -73,7 +76,7 @@ cd / && pwd && ls -al
 echo -e "$hr\nVENV DIR\n$hr"
 cd /maps && pwd && ls -al
 cd ${WORKING_DIR}/docs/_data/ta-lib
-./configure --prefix=/usr && make && make install
+./configure --prefix=${PREFIX} && make && make install
 
 # current
 echo -e "$hr\nWORK DIR\n$hr"
