@@ -5,7 +5,6 @@ lxml
 matplotlib
 numpy
 opencv-python
-pandas
 pillow
 projectq
 qiskit
@@ -15,8 +14,9 @@ scikit-fuzzy
 scikit-learn
 statsmodels
 sympy
-tabulate
 ta-lib
+tabulate
+pandas
 pandas-ta
 tensorflow-gpu
 texttable
