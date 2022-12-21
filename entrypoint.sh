@@ -46,9 +46,9 @@ export RAILS_VERSION=5.0.1
 export BUNDLER_VER=${BUNDLER_VER}
 export BUNDLE_GEMFILE=/maps/Gemfile
 export BUNDLE_SILENCE_ROOT_WARNING=1
-export TA_LIBRARY_PATH=${PREFIX}/lib
+#export TA_LIBRARY_PATH=${PREFIX}/lib
 export NOKOGIRI_USE_SYSTEM_LIBRARIES=1
-export TA_INCLUDE_PATH=${PREFIX}/include
+#export TA_INCLUDE_PATH=${PREFIX}/include
 export PAGES_REPO_NWO=$GITHUB_REPOSITORY
 export VENDOR_BUNDLE=${WORKING_DIR}/vendor/bundle
 export SSL_CERT_FILE=$(realpath .github/hook-scripts/cacert.pem)
@@ -75,8 +75,11 @@ cd / && pwd && ls -al
 # packages
 echo -e "$hr\nVENV DIR\n$hr"
 cd /maps && pwd && ls -al
-cd ${PREFIX} && autoreconf -f -i && chmod +x configure
-./configure --prefix=/usr && make && make install &>/dev/null
+
+wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+#cd ${PREFIX} && autoreconf -f -i && chmod +x configure
+tar -xzf ta-lib-0.4.0-src.tar.gz && cd ta-lib/
+./configure --prefix=/usr && make && make install
 
 # current
 echo -e "$hr\nWORK DIR\n$hr"
