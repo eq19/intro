@@ -16,6 +16,8 @@ scikit-learn
 statsmodels
 sympy
 tabulate
+ta-lib
+pandas-ta
 tensorflow-gpu
 texttable
 termcolor
