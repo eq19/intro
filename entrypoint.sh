@@ -14,8 +14,8 @@ export OWNER=${GITHUB_REPOSITORY_OWNER}
 export BRANCH=${INPUT_BRANCH:=gh-pages}
 export PROVIDER=${INPUT_PROVIDER:=github}
 export BUNDLER_VER=${INPUT_BUNDLER_VER:=>=0}
-#export PREFIX=${WORKING_DIR}/docs/_data/ta-lib
 export JEKYLL_BASEURL=${INPUT_JEKYLL_BASEURL:=}
+export PREFIX=${WORKING_DIR}/docs/_data/ta-lib/linux
 export PRE_BUILD_COMMANDS=${INPUT_PRE_BUILD_COMMANDS:=}
 export SCRIPT_DIR=${WORKING_DIR}/docs/_maps/Journal/Scripts
 
@@ -75,9 +75,7 @@ cd / && pwd && ls -al
 # packages
 echo -e "$hr\nVENV DIR\n$hr"
 cd /maps && pwd && ls -al
-wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
-tar -xzf ta-lib-0.4.0-src.tar.gz && cd ta-lib/
-./configure --prefix=/usr && make && make install
+cd ${PREFIX} && ./configure --prefix=/usr && make && make install
 
 # current
 echo -e "$hr\nWORK DIR\n$hr"
