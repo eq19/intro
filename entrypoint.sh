@@ -3,8 +3,8 @@
 set -e
 export WORKING_DIR=${PWD}
 chown -R $(whoami) ${WORKING_DIR}
-chmod -R +x /maps/Journal/Scripts
 export hr=$(printf '=%.0s' {1..80})
+chmod -R +x docs/_maps/Journal/Scripts
 
 # Initial default value
 export TOKEN=${INPUT_TOKEN}
@@ -16,6 +16,7 @@ export PROVIDER=${INPUT_PROVIDER:=github}
 export BUNDLER_VER=${INPUT_BUNDLER_VER:=>=0}
 export JEKYLL_BASEURL=${INPUT_JEKYLL_BASEURL:=}
 export PRE_BUILD_COMMANDS=${INPUT_PRE_BUILD_COMMANDS:=}
+export SCRIPT_DIR=${WORKING_DIR}/docs/_maps/Journal/Scripts
 
 # https://stackoverflow.com/a/42137273/4058484
 export JEKYLL_SRC=${WORKING_DIR}
@@ -122,9 +123,9 @@ node -v && npm -v
 
 # Restore modification time (mtime) of git files
 echo -e "$hr\nEPOCH TEST\n$hr"
-/maps/Journal/Scripts/restore.sh
-/maps/Journal/Scripts/prime_list.sh
-/maps/Journal/Scripts/init_environment.sh
+${SCRIPT_DIR}/restore.sh
+${SCRIPT_DIR}/prime_list.sh
+${SCRIPT_DIR}/init_environment.sh
 
 # Clean up bundler cache
 CLEANUP_BUNDLER_CACHE_DONE=false
@@ -132,7 +133,7 @@ bundle config path ${GEM_PATH}
 bundle config cache_all true
 
 cleanup_bundler_cache() {
-  /maps/Journal/Scripts/cleanup_bundler.sh
+  ${SCRIPT_DIR}/cleanup_bundler.sh
   rm -rf ${GEM_HOME} && mkdir -p ${GEM_HOME}
   gem install bundler -v "${BUNDLER_VER}" &>/dev/null
   echo -e "\nCLEANUP BUNDLE\n$hr" && bundle install
@@ -187,7 +188,7 @@ build_jekyll || {
 cd ${WORKING_DIR}
 echo -e "$hr\nDEPLOYMENT\n$hr"
 # https://unix.stackexchange.com/a/83895/158462
-git submodule foreach -q /maps/Journal/Scripts/github_pages.sh
+git submodule foreach -q ${SCRIPT_DIR}/github_pages.sh
 
 
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
