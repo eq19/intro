@@ -19,8 +19,8 @@ python3.8-dev python3.8-venv &>/dev/null
 RUN python3.8 -m venv /maps
 ADD . /maps
 
-ENV PATH="/maps/bin:${PATH}"
-RUN source activate
-
 ENV GIT_DISCOVERY_ACROSS_FILESYSTEM=1
-ENTRYPOINT ["/maps/entrypoint.sh"]
+ENV PATH="/maps/bin:/maps:${PATH}"
+
+RUN source activate
+ENTRYPOINT ["entrypoint.sh"]
