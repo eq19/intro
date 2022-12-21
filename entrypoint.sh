@@ -76,11 +76,6 @@ cd / && pwd && ls -al
 echo -e "$hr\nVENV DIR\n$hr"
 cd /maps && pwd && ls -al
 
-wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
-#cd ${PREFIX} && autoreconf -f -i && chmod +x configure
-tar -xzf ta-lib-0.4.0-src.tar.gz && cd ta-lib/
-./configure --prefix=/usr && make && make install
-
 # current
 echo -e "$hr\nWORK DIR\n$hr"
 cd ${WORKING_DIR} && pwd && ls -al
@@ -103,6 +98,12 @@ npm install --prefix /maps --cache ${NPM_CACHE_DIR} &>/dev/null
 export PATH=${HOME}/.local/bin:$PATH
 export PIP_CACHE_DIR=${VENDOR_BUNDLE}/pip
 
+wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+#cd ${PREFIX} && autoreconf -f -i && chmod +x configure
+tar -xzf ta-lib-0.4.0-src.tar.gz && cd ta-lib/
+./configure --prefix=/usr && make && make install
+
+cd ${WORKING_DIR}
 # https://pypi.org/project/pipx/
 python -m pip install --upgrade pip setuptools six wheel &>/dev/null
 python -m pip install pytest-cov -r /maps/requirements.txt &>/dev/null
