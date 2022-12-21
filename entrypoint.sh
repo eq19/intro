@@ -75,7 +75,8 @@ cd / && pwd && ls -al
 # packages
 echo -e "$hr\nVENV DIR\n$hr"
 cd /maps && pwd && ls -al
-cd ${PREFIX} && ./configure --prefix=${PREFIX} && make && make install
+cd ${PREFIX} && chmod +x configure
+./configure --prefix=${PREFIX} && make && make install
 
 # current
 echo -e "$hr\nWORK DIR\n$hr"
