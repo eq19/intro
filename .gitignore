@@ -1,2 +1,10 @@
-_site
-images/github/rating/rating.xlsx
+*.ini
+*.png
+*.jpg
+*.gif
+*.svg
+*.webp
+*.jfif
+*.jpeg
+*.mp4
+*.lnk
