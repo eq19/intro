@@ -17,7 +17,7 @@ statsmodels
 sympy
 tabulate
 ta-lib
-pandas-ta
+pandas_ta
 tensorflow-gpu
 texttable
 termcolor
