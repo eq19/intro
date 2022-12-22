@@ -16,16 +16,9 @@ cd ${WORKING_DIR}
 echo -e "\n$hr\nGIT PROFILES\n$hr"
 ls -al .git
 
-echo -e "\n$hr\nGIT CPNFIG\n$hr"
-chown -R $(whoami) .git/config
-git config --unset http.https://github.com/.extraheader
-git config --unset-all http.https://github.com/.extraheader
-git config --global --unset http.https://github.com/.extraheader
-git config --system --unset http.https://github.com/.extraheader
-git submodule update --init --recursive
-git submodule foreach --recursive git fetch
-git submodule foreach 'git fetch origin; git checkout $(git rev-parse --abbrev-ref HEAD); git reset --hard origin/$(git rev-parse --abbrev-ref HEAD); chown -R $(whoami) .git; chmod -R +x .git; git config --unset http.https://github.com/.extraheader; git config --unset-all http.https://github.com/.extraheader; git config --global --unset http.https://github.com/.extraheader; git config --system --unset http.https://github.com/.extraheader;git submodule update --recursive; git clean -dfx'
-
+echo -e "\n$hr\nGIT CONFIG\n$hr"
+${SCRIPT_DIR}/submodules.sh &>/dev/null
+git submodule foreach -q ${SCRIPT_DIR}/submodules.sh &>/dev/null
 cat .git/config
 
 # environtment
