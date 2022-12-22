@@ -2,7 +2,7 @@
 
 import os
 import glob
-import talib
+#import talib
 import numpy as np
 import pandas as pd
 import pandas_ta as ta
