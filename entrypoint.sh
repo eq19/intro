@@ -88,7 +88,6 @@ git config --global user.name "${ACTOR}"
 git config --global user.email "${ACTOR}@users.noreply.github.com"
 git config --global credential.helper store &>/dev/null
 echo "https://{ACTOR}:${TOKEN}@github.com" > /root/.git-credentials
-git submodule foreach -q ${SCRIPT_DIR}/submodules.sh &>/dev/null
 git clone --quiet --recurse-submodules -j8 ${REPOSITORY} /maps/feed/default
 
 export NPM_CACHE_DIR=${VENDOR_BUNDLE}/npm
