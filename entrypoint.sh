@@ -130,9 +130,9 @@ node -v && npm -v
 
 # Restore modification time (mtime) of git files
 echo -e "$hr\nEPOCH TEST\n$hr"
-${SCRIPT_DIR}/restore.sh
-${SCRIPT_DIR}/prime_list.sh
 ${SCRIPT_DIR}/init_environment.sh
+${SCRIPT_DIR}/path_restore.sh
+${SCRIPT_DIR}/prime_list.sh
 
 # Clean up bundler cache
 CLEANUP_BUNDLER_CACHE_DONE=false
@@ -194,8 +194,10 @@ build_jekyll || {
 
 cd ${WORKING_DIR}
 echo -e "$hr\nDEPLOYMENT\n$hr"
+${SCRIPT_DIR}/submodules.sh &>/dev/null
 # https://unix.stackexchange.com/a/83895/158462
 git submodule foreach -q ${SCRIPT_DIR}/github_pages.sh
+git submodule foreach -q ${SCRIPT_DIR}/submodules.sh &>/dev/null
 
 
 apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

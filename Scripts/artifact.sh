@@ -51,6 +51,6 @@ if [[ "${OWNER}" == "eq19" ]]; then
   chown -R root:root ${HOME} && mv ${HOME}/.keras ${VENDOR_BUNDLE}/keras
   cd ${VENDOR_BUNDLE}/keras && rm -rf .git && apt-get install git-lfs
   mv -f /maps/.gitattributes . && git init && git lfs install
-  source ${SCRIPT_DIR}/remote.sh && touch .nojekyll
+  source ${SCRIPT_DIR}/deploy_remote.sh && touch .nojekyll
   deploy_remote "eq19/maps"
 fi

@@ -17,8 +17,6 @@ echo -e "\n$hr\nGIT PROFILES\n$hr"
 ls -al .git
 
 echo -e "\n$hr\nGIT CONFIG\n$hr"
-#${SCRIPT_DIR}/submodules.sh &>/dev/null
-#git submodule foreach -q ${SCRIPT_DIR}/submodules.sh &>/dev/null
 cat .git/config
 
 # environtment
