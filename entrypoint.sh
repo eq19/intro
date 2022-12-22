@@ -97,10 +97,9 @@ npm install --prefix /maps --cache ${NPM_CACHE_DIR} &>/dev/null
 export PATH=${HOME}/.local/bin:$PATH
 export PIP_CACHE_DIR=${VENDOR_BUNDLE}/pip
 
-
 #wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz &>/dev/null
 cd ${PREFIX} #tar -xzf ta-lib-0.4.0-src.tar.gz &>/dev/null && cd ta-lib/
-./configure --prefix=/usr &>/dev/null && make &>/dev/null && make install &>/dev/null
+#./configure --prefix=/usr &>/dev/null && make &>/dev/null && make install &>/dev/null
 
 cd ${WORKING_DIR}
 # https://pypi.org/project/pipx/
