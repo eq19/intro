@@ -4,6 +4,7 @@ set -e
 export WORKING_DIR=${PWD}
 chown -R $(whoami) ${WORKING_DIR}
 export hr=$(printf '=%.0s' {1..80})
+git submodule update --init --recursive
 
 # Initial default value
 export TOKEN=${INPUT_TOKEN}
