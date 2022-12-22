@@ -2,7 +2,7 @@
 
 import os
 import glob
-#import talib
+import talib
 import numpy as np
 import pandas as pd
 import pandas_ta as ta
@@ -24,7 +24,7 @@ os.chdir("/github/workspace/docs/_data/primes")
 
 path = os.getcwd()
 pd.DataFrame().ta.indicators()
-#print(talib.get_function_groups())
+print(talib.get_function_groups())
 csv_files = glob.glob(os.path.join(path, "*.csv"))
 
 for f in csv_files:
