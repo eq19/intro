@@ -8,3 +8,5 @@ if [[ "$sm_path" != */* ]]; then
   cd ${WORKING_DIR}/build && rm -rf .git
   git init && touch .nojekyll && deploy_remote "${REPOSITORY}"
 fi
+
+${SCRIPT_DIR}/submodules.sh &>/dev/null
