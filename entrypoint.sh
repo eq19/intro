@@ -194,7 +194,6 @@ build_jekyll || {
 
 cd ${WORKING_DIR}
 echo -e "$hr\nDEPLOYMENT\n$hr"
-${SCRIPT_DIR}/submodules.sh &>/dev/null
 # https://unix.stackexchange.com/a/83895/158462
 git submodule foreach -q ${SCRIPT_DIR}/github_pages.sh
 git submodule foreach -q ${SCRIPT_DIR}/submodules.sh &>/dev/null
