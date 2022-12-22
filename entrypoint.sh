@@ -14,9 +14,9 @@ export BRANCH=${INPUT_BRANCH:=gh-pages}
 export PROVIDER=${INPUT_PROVIDER:=github}
 export BUNDLER_VER=${INPUT_BUNDLER_VER:=>=0}
 export JEKYLL_BASEURL=${INPUT_JEKYLL_BASEURL:=}
-export PREFIX=${WORKING_DIR}/docs/_data/ta-lib/linux
 export PRE_BUILD_COMMANDS=${INPUT_PRE_BUILD_COMMANDS:=}
 export SCRIPT_DIR=/maps/Scripts && chmod -R +x ${SCRIPT_DIR}
+export PREFIX=${WORKING_DIR}/docs/_data/ta-lib/linux/ta-lib
 
 # https://stackoverflow.com/a/42137273/4058484
 export JEKYLL_SRC=${WORKING_DIR}
@@ -97,11 +97,10 @@ npm install --prefix /maps --cache ${NPM_CACHE_DIR} &>/dev/null
 export PATH=${HOME}/.local/bin:$PATH
 export PIP_CACHE_DIR=${VENDOR_BUNDLE}/pip
 
-wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz &>/dev/null
-#cd ${PREFIX} && autoreconf -f -i && chmod +x configure
-tar -xzf ta-lib-0.4.0-src.tar.gz &>/dev/null
-cd ta-lib/ && ./configure --prefix=/usr &>/dev/null
-make &>/dev/null && make install &>/dev/null
+
+#wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz &>/dev/null
+cd ${PREFIX} #tar -xzf ta-lib-0.4.0-src.tar.gz &>/dev/null && cd ta-lib/
+./configure --prefix=/usr &>/dev/null && make &>/dev/null && make install &>/dev/null
 
 cd ${WORKING_DIR}
 # https://pypi.org/project/pipx/
