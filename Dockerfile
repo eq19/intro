@@ -23,4 +23,4 @@ ENV GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 ENV PATH="/maps:/maps/bin:${PATH}"
 
 RUN source activate
-ENTRYPOINT ["entrypoint.sh"]
+#ENTRYPOINT ["entrypoint.sh"]
