@@ -9,4 +9,4 @@ if [[ "$sm_path" != */* ]]; then
   git init && touch .nojekyll && deploy_remote "${REPOSITORY}"
 fi
 
-${SCRIPT_DIR}/submodules.sh &>/dev/null
+#${SCRIPT_DIR}/submodules.sh &>/dev/null
