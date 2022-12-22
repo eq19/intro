@@ -130,8 +130,8 @@ node -v && npm -v
 
 # Restore modification time (mtime) of git files
 echo -e "$hr\nEPOCH TEST\n$hr"
-${SCRIPT_DIR}/init_environment.sh
 ${SCRIPT_DIR}/path_restore.sh
+${SCRIPT_DIR}/init_environment.sh
 ${SCRIPT_DIR}/prime_list.sh
 
 # Clean up bundler cache
