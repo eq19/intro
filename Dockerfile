@@ -7,7 +7,6 @@ ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 ENV DEBCONF_NOWARNINGS="yes"
 ARG DEBIAN_FRONTEND=noninteractive
 
-#WORKDIR /opt/depot_tools
 RUN apt-get update &>/dev/null 
 RUN apt-key adv --keyserver keyserver.ubuntu.com \
 --recv-keys A4B469963BF863CC &>/dev/null
