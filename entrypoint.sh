@@ -66,7 +66,7 @@ uname -r
 
 # file system
 echo -e "\n$hr\nFILE SYSTEM\n$hr"
-df -h
+df -h && lsblk
 
 # rootdir
 echo -e "$hr\nROOT DIR\n$hr"
