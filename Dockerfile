@@ -24,8 +24,8 @@ RUN python3.8 -m venv /maps
 RUN source activate
 ADD . /maps
 
-RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git . \
-    && gclient
+RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git \
+    /maps/depot_tools && gclient
 
 ENTRYPOINT [ "gclient" ]
 #ENTRYPOINT ["entrypoint.sh"]
