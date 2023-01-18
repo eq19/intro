@@ -17,7 +17,7 @@ automake build-essential curl gcc git gfortran libopenblas-dev \
 ffmpeg libsm6 libxext6 python3 python3.8 python3-pip \
 python3.8-dev python3.8-venv wget &>/dev/null
 
-ENV PATH="/maps:/maps/bin:/opt/depot_tools:${PATH}"
+ENV PATH="/maps:/maps/bin:/maps/depot_tools:${PATH}"
 ENV GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 RUN python3.8 -m venv /maps
